@@ -4,8 +4,39 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="js/consultas.js"></script>
     </head>
     <body>
-        <div>TODO write content</div>
-    </body>
+  <h1>Cadastro de Consultas</h1>
+
+  <form id="formConsulta">
+    <label>Data: <input type="date" id="data" required /></label><br>
+    <label>Hora: <input type="time" id="hora" required /></label><br>
+    <label>Paciente: <input type="text" id="paciente" required /></label><br>
+    <label>Médico: <input type="text" id="medico" required /></label><br>
+    <label>Status:
+      <select id="status" required>
+        <option value="agendada">Agendada</option>
+        <option value="concluída">Concluída</option>
+        <option value="cancelada">Cancelada</option>
+      </select>
+    </label><br>
+    <button type="submit">Cadastrar Consulta</button>
+  </form>
+
+  <h2>Consultas Agendadas</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Hora</th>
+        <th>Paciente</th>
+        <th>Médico</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaConsultas"></tbody>
+  </table>
+</body>
 </html>
