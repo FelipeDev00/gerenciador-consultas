@@ -1,29 +1,60 @@
-document.getElementById("formPaciente").addEventListener("submit", function (e) {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("formPaciente");
+  const tabela = document.getElementById("tabelaPacientes");
 
-  const nome = document.getElementById("nome").value;
-  const cpf = document.getElementById("cpf").value;
-  const telefone = document.getElementById("telefone").value;
-  const dataNascimento = document.getElementById("dataNascimento").value;
-  const observacoes = document.getElementById("observacoes").value;
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault(); // Evita o recarregamento da página
 
-  // Validação simples
-  if (!nome || !cpf || !telefone || !dataNascimento) {
-    alert("Por favor, preencha todos os campos obrigatórios.");
-    return;
+    const paciente = {
+      nome: document.getElementById("nome").value,
+      cpf: document.getElementById("cpf").value,
+      telefone: document.getElementById("telefone").value,
+      dataNascimento: document.getElementById("dataNascimento").value,
+      observacoes: document.getElementById("observacoes").value
+    };
+
+    try {
+      const response = await fetch("http://localhost:8080/api/pacientes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(paciente)
+      });
+
+      if (response.ok) {
+        alert("Paciente cadastrado com sucesso!");
+        form.reset();
+        carregarPacientes(); // Atualiza a tabela
+      } else {
+        alert("Erro ao cadastrar paciente.");
+      }
+    } catch (error) {
+      alert("Erro ao conectar com o servidor.");
+      console.error(error);
+    }
+  });
+
+  async function carregarPacientes() {
+    try {
+      const response = await fetch("http://localhost:8080/api/pacientes");
+      const pacientes = await response.json();
+      tabela.innerHTML = "";
+
+      pacientes.forEach((p) => {
+        const linha = document.createElement("tr");
+        linha.innerHTML = `
+          <td>${p.nome}</td>
+          <td>${p.cpf}</td>
+          <td>${p.telefone}</td>
+          <td>${p.dataNascimento}</td>
+          <td>${p.observacoes || ""}</td>
+        `;
+        tabela.appendChild(linha);
+      });
+    } catch (error) {
+      console.error("Erro ao carregar pacientes:", error);
+    }
   }
 
-  const tabela = document.getElementById("tabelaPacientes");
-  const linha = tabela.insertRow();
-
-  linha.innerHTML = `
-    <td>${nome}</td>
-    <td>${cpf}</td>
-    <td>${telefone}</td>
-    <td>${dataNascimento}</td>
-    <td>${observacoes}</td>
-  `;
-
-  // Limpa o formulário
-  document.getElementById("formPaciente").reset();
+  // Carrega pacientes ao abrir a página
+  carregarPacientes();
 });
