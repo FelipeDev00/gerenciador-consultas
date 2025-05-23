@@ -1,4 +1,4 @@
-package com.gerenciamentoconsulta.gerenciaconsulta;
+package com.gerenciamentoconsulta.gerenciaconsulta.controller;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
