@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/lista-consultas.js"></script>
+    </head>
+    <body>
+  <h1>Listagem de Consultas</h1>
+
+  <div>
+    <label>Filtrar por data: <input type="date" id="filtroData" /></label>
+    <label>Filtrar por médico: <input type="text" id="filtroMedico" /></label>
+    <button onclick="aplicarFiltro()">Filtrar</button>
+  </div>
+
+  <h2>Consultas</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Hora</th>
+        <th>Paciente</th>
+        <th>Médico</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaConsultasFiltradas">
+    </tbody>
+  </table>
+</body>
+</html>
