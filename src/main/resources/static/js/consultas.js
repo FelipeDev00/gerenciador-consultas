@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("formConsulta");
+  const tabela = document.getElementById("tabelaConsultas");
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -24,10 +26,42 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         alert("Consulta cadastrada com sucesso!");
         form.reset();
+        carregarConsultasAgendadas(); // Atualiza tabela após cadastrar
       })
       .catch((error) => {
         console.error(error);
         alert("Erro ao cadastrar consulta.");
       });
   });
+
+  async function carregarConsultasAgendadas() {
+    try {
+      const response = await fetch("http://localhost:8080/api/consultas");
+      const consultas = await response.json();
+
+      // Filtra só as consultas com status "agendada" (case-insensitive)
+      const consultasAgendadas = consultas.filter(
+        (c) => c.status.toLowerCase() === "agendada"
+      );
+
+      tabela.innerHTML = "";
+
+      consultasAgendadas.forEach((c) => {
+        const linha = document.createElement("tr");
+        linha.innerHTML = `
+          <td>${c.data}</td>
+          <td>${c.hora}</td>
+          <td>${c.paciente}</td>
+          <td>${c.medico}</td>
+          <td>${c.status}</td>
+        `;
+        tabela.appendChild(linha);
+      });
+    } catch (error) {
+      console.error("Erro ao carregar consultas:", error);
+    }
+  }
+
+  // Carrega as consultas agendadas assim que a página abrir
+  carregarConsultasAgendadas();
 });
