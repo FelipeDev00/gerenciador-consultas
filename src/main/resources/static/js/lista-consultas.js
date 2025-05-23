@@ -28,16 +28,17 @@ function aplicarFiltro() {
   resultados.forEach(c => {
   const linha = corpoTabela.insertRow();
   linha.innerHTML = `
-    <td>${c.data}</td>
-    <td>${c.hora}</td>
-    <td>${c.paciente}</td>
-    <td>${c.medico}</td>
-    <td>${c.status}</td>
-    <td>
-      <button onclick="editarConsulta(${c.id})">Editar</button>
-      <button onclick="excluirConsulta(${c.id})">Excluir</button>
-    </td>
-  `;
+  <td>${c.data}</td>
+  <td>${c.hora}</td>
+  <td>${c.paciente}</td>
+  <td>${c.medico}</td>
+  <td>${c.status}</td>
+  <td>
+    <a href="editar-consulta.html?id=${c.id}">Editar</a>
+    <button onclick="excluirConsulta(${c.id})">Excluir</button>
+  </td>
+`;
+
 });
 
 }

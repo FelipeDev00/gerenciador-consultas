@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Editar consulta</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+  <h1>Editar Consulta</h1>
+  <form id="formEditarConsulta">
+    <label>Data: <input type="date" id="data" required /></label><br><br>
+    <label>Hora: <input type="time" id="hora" required /></label><br><br>
+    <label>Paciente: <input type="text" id="paciente" required /></label><br><br>
+    <label>Médico: <input type="text" id="medico" required /></label><br><br>
+    <label>Status:
+      <select id="status" required>
+        <option value="agendada">Agendada</option>
+        <option value="concluída">Concluída</option>
+        <option value="cancelada">Cancelada</option>
+      </select>
+    </label><br><br>
+    <button type="submit">Salvar Alterações</button>
+    <a href="lista-consultas.html">Cancelar</a>
+  </form>
+
+  <script src="js/editar-consultas.js"></script>
+</body>
+</html>
