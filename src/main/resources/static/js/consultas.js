@@ -1,32 +1,33 @@
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("formConsulta");
-  const tabela = document.getElementById("tabelaConsultas");
-
   form.addEventListener("submit", function (e) {
-    e.preventDefault(); // Evita o envio do formulário
+    e.preventDefault();
 
-    // Captura os valores dos campos
-    const data = document.getElementById("data").value;
-    const hora = document.getElementById("hora").value;
-    const paciente = document.getElementById("paciente").value;
-    const medico = document.getElementById("medico").value;
-    const status = document.getElementById("status").value;
+    const consulta = {
+      data: document.getElementById("data").value,
+      hora: document.getElementById("hora").value,
+      paciente: document.getElementById("paciente").value,
+      medico: document.getElementById("medico").value,
+      status: document.getElementById("status").value,
+    };
 
-    // Cria uma nova linha e colunas com os dados
-    const novaLinha = document.createElement("tr");
-
-    novaLinha.innerHTML = `
-      <td>${data}</td>
-      <td>${hora}</td>
-      <td>${paciente}</td>
-      <td>${medico}</td>
-      <td>${status}</td>
-    `;
-
-    // Adiciona a nova linha à tabela
-    tabela.appendChild(novaLinha);
-
-    // Limpa o formulário
-    form.reset();
+    fetch("http://localhost:8080/api/consultas", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(consulta),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erro ao cadastrar consulta");
+        }
+        alert("Consulta cadastrada com sucesso!");
+        form.reset();
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("Erro ao cadastrar consulta.");
+      });
   });
 });

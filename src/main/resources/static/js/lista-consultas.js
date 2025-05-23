@@ -1,9 +1,16 @@
-/// Simulação de dados fixos de consultas
-const consultas = [
-  { data: '2025-05-22', hora: '10:00', paciente: 'João Silva', medico: 'Dra. Ana', status: 'agendada' },
-  { data: '2025-05-23', hora: '14:00', paciente: 'Maria Lima', medico: 'Dr. Pedro', status: 'concluída' },
-  { data: '2025-05-22', hora: '11:30', paciente: 'Carlos Souza', medico: 'Dra. Ana', status: 'cancelada' }
-];
+let consultas = [];
+
+function carregarConsultas() {
+  fetch("http://localhost:8080/api/consultas")
+    .then((res) => res.json())
+    .then((data) => {
+      consultas = data;
+      aplicarFiltro(); // já renderiza ao carregar
+    })
+    .catch((err) => {
+      console.error("Erro ao carregar consultas:", err);
+    });
+}
 
 function aplicarFiltro() {
   const dataFiltro = document.getElementById("filtroData").value;
@@ -29,8 +36,5 @@ function aplicarFiltro() {
     `;
   });
 }
-// Inicializa com todas as consultas
-aplicarFiltro();
 
-
-
+document.addEventListener("DOMContentLoaded", carregarConsultas);
