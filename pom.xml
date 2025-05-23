@@ -11,7 +11,7 @@
 	<groupId>com.gerenciamentoconsulta</groupId>
 	<artifactId>gerenciaconsulta</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>gerenciaconsulta</name>
 	<description>Projeto de gerenciamento de consultas médicas para melhor organização de agenda e paciêntes.</description>
 	<url/>
@@ -52,7 +52,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
