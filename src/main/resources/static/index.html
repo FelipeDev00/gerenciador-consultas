@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Página inicial</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
+        <div id="menu"></div>
+        <script>
+          fetch("partials/menu.html")
+            .then(res => res.text())
+            .then(html => document.getElementById("menu").innerHTML = html);
+        </script>
+
   <h1>Bem-vindo à Clínica Médica</h1>
   <nav>
     <ul>

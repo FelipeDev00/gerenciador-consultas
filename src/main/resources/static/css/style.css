@@ -60,3 +60,17 @@ th, td {
   padding: 10px;
   border: 1px solid #ccc;
 }
+nav {
+  background-color: #1e90ff;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
+}
