@@ -5,7 +5,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css" />
-        <script src="js/script.js"></script>
     </head>
     <body>
   <h1>Cadastro de Pacientes</h1>
@@ -16,7 +15,8 @@
     <label>Telefone: <input type="tel" id="telefone" required /></label><br>
     <label>Data de Nascimento: <input type="date" id="dataNascimento" required /></label><br>
     <label>Observações: <textarea id="observacoes"></textarea></label><br>
-    <button type="submit">Cadastrar</button>
+    <button type="submit" id="btnCadastrar">Cadastrar</button>
+    <button type="button" id="btnAtualizar" style="display:none;">Atualizar</button>
   </form>
 
   <h2>Pacientes Cadastrados</h2>
@@ -32,6 +32,6 @@
       </tr>
     </thead>
     <tbody id="tabelaPacientes"></tbody>
-  </table>
+  </table><script src="js/script.js"></script>
 </body>
 </html>
