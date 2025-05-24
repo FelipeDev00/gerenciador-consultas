@@ -6,8 +6,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css" />
     </head>
-    <body>
-  <h1>Cadastro de Pacientes</h1>
+    <body class ="corpo">
+        
+        <div class="sidebar">
+    <h2>Menu</h2>
+    <ul>
+      <li><a href="index.html">Tela inicial</a></li>
+      <li><a href="lista-consultas.html">Lista de consultas</a></li>
+      <li><a href="pacientes.html">Cadastrar pacientes</a></li>
+      
+    </ul>
+    </div>
+        <main>
+            <h1>Cadastro de Pacientes</h1>
 
   <form id="formPaciente">
     <label>Nome: <input type="text" id="nome" required /></label><br>
@@ -32,6 +43,8 @@
       </tr>
     </thead>
     <tbody id="tabelaPacientes"></tbody>
-  </table><script src="js/script.js"></script>
+  </table>
+        </main>
+  <script src="js/script.js"></script>
 </body>
 </html>

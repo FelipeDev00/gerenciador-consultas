@@ -6,8 +6,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css" />
     </head>
-    <body>
-  <h1>Cadastro de Consultas</h1>
+    <body class ="corpo">
+        
+        <div class="sidebar">
+    <h2>Menu</h2>
+    <ul>
+      <li><a href="index.html">Tela inicial</a></li>
+      <li><a href="lista-consultas.html">Lista de consultas</a></li>
+      <li><a href="pacientes.html">Cadastrar pacientes</a></li>
+      
+    </ul>
+    </div>
+        
+        <main>
+            <h1>Cadastro de Consultas</h1>
 
   <form id="formConsulta">
     <label>Data: <input type="date" id="data" required /></label><br>
@@ -37,6 +49,7 @@
     </thead>
     <tbody id="tabelaConsultas"></tbody>
   </table>
+        </main>
   <script src="js/consultas.js"></script>
 </body>
 </html>

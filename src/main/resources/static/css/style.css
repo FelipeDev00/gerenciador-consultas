@@ -60,6 +60,7 @@ th, td {
   padding: 10px;
   border: 1px solid #ccc;
 }
+
 nav {
   background-color: #1e90ff;
   padding: 10px;
@@ -74,5 +75,50 @@ nav a {
 nav a:hover {
   text-decoration: underline;
 }
+.corpo {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+}
 
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  background-color: #1e90ff;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  position: fixed;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+main {
+  margin-left: 220px; /* Espaço para o menu lateral */
+  padding: 20px;
+  width: 100%;
+}
 
