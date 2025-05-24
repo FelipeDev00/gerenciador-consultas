@@ -26,4 +26,24 @@ public class PacienteController {
     public Paciente salvar(@RequestBody Paciente paciente) {
         return repository.save(paciente);
     }
+    
+        @PutMapping("/{id}")
+    public Paciente atualizar(@PathVariable Long id, @RequestBody Paciente pacienteAtualizado) {
+        return repository.findById(id)
+                .map(paciente -> {
+                    paciente.setNome(pacienteAtualizado.getNome());
+                    paciente.setCpf(pacienteAtualizado.getCpf());
+                    paciente.setTelefone(pacienteAtualizado.getTelefone());
+                    paciente.setDataNascimento(pacienteAtualizado.getDataNascimento());
+                    paciente.setObservacoes(pacienteAtualizado.getObservacoes());
+                    return repository.save(paciente);
+                })
+                .orElseThrow(() -> new RuntimeException("Paciente não encontrado com ID: " + id));
+    }
+
+    @DeleteMapping("/{id}")
+    public void excluir(@PathVariable Long id) {
+        repository.deleteById(id);
+    }
+
 }
