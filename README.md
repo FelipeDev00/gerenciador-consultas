@@ -16,11 +16,13 @@ JavaScript
 <br>
 Java
 <br>
-JDBC (para conexão com banco de dados)
+JPA/Hibernate
 <br>
 MySQL (como banco de dados relacional)
 <br>
 AJAX ou Fetch API (para chamadas assíncronas entre front e back)
+<br>
+Spring Boot
 #
 
 <H3>Time de Desenvolvedores:</H3>
