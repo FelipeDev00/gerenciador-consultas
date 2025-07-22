@@ -1,9 +1,9 @@
 # Sistema de Gerenciamento de Consultas Médicas
 
-<H2>Completo </H2>
+<H2> Projeto feito para praticar meus estudos, com foco no back-end.</H2>
 <br>
 
-Tecnologias que serão usadas: <br>
+Tecnologias que foram utilizadas: <br>
 <b>Front-end:</b>
 <br>
 HTML5
